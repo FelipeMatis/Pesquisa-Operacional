@@ -64,7 +64,7 @@ def carregar_modelo_txt(file_path):
     return tipo, c, np.array(matrix_A_list), np.array(vector_b_list), sinals
 
 def normalized_func(A, sinals, c):
-    """Adiciona variáveis de folga (+1) ou excesso (-1) para criar igualdades."""
+    """Adiciona variáveis de folga (+1) ou excesso (-1) para criar igualdades.""" #trata "<" e ">"
     m = A.shape[0]
     n_folgas = sum(1 for s in sinals if s in ['<=', '>='])
     matrix_folgas = np.zeros((m, n_folgas))
@@ -103,7 +103,7 @@ def basic_nonBasic(A, b):
     return A[:, s_vals], A[:, nb_vals], s_vals, nb_vals
 
 def simplex2(c, B, NB, B_idx, NB_idx, inv_B, b, tipo):
-    """Passos lógicos do Simplex Revisado."""
+    """Passos lógicos do Simplex."""
     cB, cN = c[B_idx], c[NB_idx]
     
     # 1. Vetor Multiplicador (Dual): pi = cB * B^-1
