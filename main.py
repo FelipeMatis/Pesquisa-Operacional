@@ -89,7 +89,7 @@ def inverter_matriz(M):
         pivo_linha = i + np.argmax(np.abs(mat[i:, i]))
         mat[[i, pivo_linha]] = mat[[pivo_linha, i]]
         pivo_val = mat[i, i]
-        if abs(pivo_val) < 1e-10: raise ValueError("Matriz Singular!")
+        if abs(pivo_val) < 1e-10: raise ValueError("Matriz Singular!") #se a determinante for = 0, matriz singular
         mat[i] /= pivo_val
         for j in range(n):
             if i != j: mat[j] -= mat[j, i] * mat[i]
