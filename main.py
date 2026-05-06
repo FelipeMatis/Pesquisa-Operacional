@@ -125,7 +125,7 @@ def simplex2(c, B, NB, B_idx, NB_idx, inv_B, b, tipo):
         print(f"\nSolução Completa: {sol}\nValor Ótimo (Z): {clean_value(z)}")
         return True, None, None
 
-    # 4. Variável de Entrada (Mais negativa) e Direção Simplex (y)
+    # 4. Variável de Entrada (Mais negativa) e Direção Simplex (y), quem entra na base
     ent_idx = rel_cN.index(min_c)
     y = np.dot(inv_B, NB[:, ent_idx])
     xB = np.dot(inv_B, b)
